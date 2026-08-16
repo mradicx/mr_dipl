@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <title>Agregator događanja</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+  <header class="zaglavlje">
+    <h1 class="naslov">Događanja</h1>
+    <div class="radnje">
+      <button id="u-karticu" class="gumb" title="Otvori u zasebnoj kartici">U kartici</button>
+      <button id="osvjezi" class="gumb" title="Osvježi podatke">Osvježi</button>
+    </div>
+  </header>
+
+  <div class="alati">
+    <input type="search" id="pretraga" placeholder="Traži po nazivu ili izvođaču" autocomplete="off">
+
+    <nav class="filtri" id="filtri-vrsta" aria-label="Filtar po vrsti">
+      <button class="cip aktivan" data-vrsta="sve">Sve</button>
+      <button class="cip" data-vrsta="koncert">Koncerti</button>
+      <button class="cip" data-vrsta="dj_party">Klupsko</button>
+      <button class="cip" data-vrsta="festival">Festivali</button>
+      <button class="cip" data-vrsta="predstava">Predstave</button>
+      <button class="cip" data-vrsta="stand_up">Stand-up</button>
+      <button class="cip" data-vrsta="film">Kino</button>
+      <button class="cip" data-vrsta="izlozba">Izložbe</button>
+      <button class="cip" data-vrsta="sport">Sport</button>
+      <button class="cip" data-vrsta="ostalo">Ostalo</button>
+    </nav>
+
+    <div class="podfiltri">
+      <select id="filtar-grad" aria-label="Filtar po gradu">
+        <option value="">Svi gradovi</option>
+      </select>
+      <select id="filtar-izvor" aria-label="Filtar po izvoru">
+        <option value="">Svi izvori</option>
+      </select>
+      <button class="cip prekidac" id="samo-praceni" aria-pressed="false">Praćeni</button>
+    </div>
+  </div>
+
+  <main id="popis" class="popis" aria-live="polite">
+    <p class="stanje">Učitavanje…</p>
+  </main>
+
+  <footer class="podnozje">
+    <span id="broj-rezultata"></span>
+    <span id="verzija-popup" class="verzija"></span>
+    <a href="#" id="otvori-postavke">Postavke</a>
+  </footer>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <title>Postavke - Agregator događanja</title>
+  <link rel="stylesheet" href="../popup/popup.css">
+  <style>
+    body { width: auto; height: auto; max-width: 720px; margin: 0 auto; padding: 24px; }
+    section { margin-bottom: 30px; }
+    h2 { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+         color: var(--prigusen); border-bottom: 1px solid var(--linija);
+         padding-bottom: 5px; margin-bottom: 4px; }
+    .red { display: flex; align-items: baseline; gap: 12px; padding: 10px 0;
+           border-bottom: 1px solid var(--linija); flex-wrap: wrap; }
+    .red .ime { flex: 1 1 40%; min-width: 140px; font-weight: 600; overflow-wrap: anywhere; }
+    .red .stanje-izvora { flex: 1 1 55%; font-size: 11px; color: var(--prigusen);
+                          text-align: right; }
+    .unos { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+    .unos input, .unos select { padding: 5px 8px; border: 1px solid var(--linija);
+                  border-radius: 2px; font: inherit; font-size: 12px; background: #fff; }
+    .unos input[type=url] { flex: 2; min-width: 220px; }
+    .unos input[type=text] { flex: 1; min-width: 140px; }
+    .unos button { padding: 5px 12px; border: 1px solid var(--tinta);
+                   background: var(--tinta); color: var(--papir);
+                   border-radius: 2px; cursor: pointer; font-size: 12px; }
+    .znak { font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase;
+            padding: 1px 5px; border: 1px solid var(--linija); border-radius: 2px;
+            color: var(--prigusen); white-space: nowrap; }
+    .znak.dobar { border-color: var(--naglasak); color: var(--naglasak); }
+    .znak.lose { border-color: var(--hitno); color: var(--hitno); }
+    .poruka { font-size: 11px; color: var(--hitno); margin-top: 6px; min-height: 14px; }
+  </style>
+</head>
+<body>
+
+  <h1 class="naslov">Postavke <span id="verzija" class="meta" style="font-weight:400"></span></h1>
+
+  <section>
+    <h2>Izvori podataka</h2>
+    <div id="popis-izvora"></div>
+  </section>
+
+  <section>
+    <h2>Praćene stranice</h2>
+    <p class="meta">
+      Stranice organizatora i izvođača. Ako stranica objavljuje strukturirane podatke,
+      događanja se čitaju automatski. Ako ne objavljuje, prati se mijenja li joj se
+      sadržaj i stiže obavijest kad se nešto objavi.
+    </p>
+    <div id="popis-stranica"></div>
+    <div class="unos">
+      <input type="url" id="nova-stranica" placeholder="https://primjer-festivala.com/">
+      <input type="text" id="novi-naziv" placeholder="Naziv">
+      <select id="nova-vrsta">
+        <option value="festival">Festival</option>
+        <option value="koncert">Koncert</option>
+        <option value="predstava">Predstava</option>
+        <option value="dj_party">Klupsko</option>
+        <option value="ostalo">Ostalo</option>
+      </select>
+      <button id="dodaj-stranicu">Dodaj</button>
+    </div>
+    <p class="poruka" id="poruka-stranice"></p>
+  </section>
+
+  <section>
+    <h2>Praćeni izvođači</h2>
+    <p class="meta">Događanja praćenih izvođača posebno se označuju i za njih stiže obavijest.</p>
+    <div id="popis-izvodaca"></div>
+    <div class="unos">
+      <input type="text" id="novi-izvodac" placeholder="Npr. Sam Fender">
+      <button id="dodaj-izvodaca">Dodaj</button>
+    </div>
+  </section>
+
+  <section>
+    <h2>Područja na Resident Advisoru</h2>
+    <p class="meta">
+      Resident Advisor događanja razvrstava po područjima označenima brojem.
+      Broj se očitava na stranici grada na ra.co, u razvojnoj konzoli preglednika.
+    </p>
+    <div id="popis-podrucja"></div>
+    <div class="unos">
+      <input type="text" id="novo-podrucje" placeholder="Broj područja, npr. 559">
+      <input type="text" id="novi-grad" placeholder="Grad">
+      <button id="dodaj-podrucje">Dodaj</button>
+    </div>
+    <p class="poruka" id="poruka-podrucje"></p>
+  </section>
+
+  <section>
+    <h2>Ticketmaster Discovery</h2>
+    <p class="meta">
+      Ključ se dobiva registracijom na developer.ticketmaster.com i vrijedi odmah.
+      Izvor se uključuje čim se ključ upiše.
+    </p>
+    <div class="unos">
+      <input type="text" id="tm-kljuc" placeholder="Consumer Key">
+      <button id="spremi-tm">Spremi</button>
+    </div>
+    <p class="poruka" id="poruka-tm"></p>
+  </section>
+
+  <section>
+    <h2>Bandsintown</h2>
+    <p class="meta">
+      Sučelje zahtijeva identifikator aplikacije. Uvjeti korištenja pristup namjenjuju
+      izvođačima i njihovim predstavnicima, pa izvor ostaje isključen dok se polje ne popuni.
+    </p>
+    <div class="unos">
+      <input type="text" id="bit-appid" placeholder="Identifikator aplikacije">
+      <button id="spremi-appid">Spremi</button>
+    </div>
+  </section>
+
+  <section>
+    <h2>Dnevnik dohvata</h2>
+    <div id="dnevnik"></div>
+  </section>
+
+  <script type="module" src="postavke.js"></script>
+</body>
+</html>

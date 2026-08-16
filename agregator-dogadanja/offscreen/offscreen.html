@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<!--
+  Skriveni dokument (engl. offscreen document).
+
+
+  Uslužni radnik u Manifestu V3 izvodi se izvan konteksta stranice i nema
+  pristup objektnom modelu dokumenta. Budući da ekstrakcija sadržaja zahtijeva
+  razrješavanje HTML-a, preglednik za takve poslove nudi skriveni dokument:
+  stranicu bez vidljivog sučelja koja ima puni pristup dokumentnom modelu, a
+  pokreće se samo kad je potrebna.
+-->
+<html lang="hr">
+<head><meta charset="UTF-8"><title>Obrada podataka</title></head>
+<body><script type="module" src="offscreen.js"></script></body>
+</html>

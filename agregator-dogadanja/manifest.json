@@ -1,0 +1,55 @@
+{
+  "manifest_version": 3,
+  "name": "Agregator događanja",
+  "version": "1.1.3",
+  "description": "Objedinjuje informacije o koncertima, predstavama i festivalima s više izvora na jednom mjestu.",
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "alarms",
+    "notifications",
+    "offscreen"
+  ],
+  "host_permissions": [
+    "https://www.entrio.hr/*",
+    "https://ra.co/*",
+    "https://app.ticketmaster.com/*",
+    "https://rest.bandsintown.com/*",
+    "https://dimensionsfestival.com/*",
+    "https://www.loveinternationalfestival.com/*",
+    "https://wakinglife.pt/*",
+    "https://www.draaimolen.nu/*",
+    "https://www.horstartsandmusic.com/*",
+    "https://omana-festival.de/*",
+    "https://www.naturalisfestival.it/*",
+    "https://dekmantelfestival.com/*",
+    "https://butikfestival.com/*",
+    "https://www.houghtonfestival.co.uk/*",
+    "https://thisisgala.co.uk/*",
+    "https://www.samfender.com/*",
+    "https://www.rammstein.de/*",
+    "https://www.nbthieves.com/*"
+  ],
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Agregator događanja",
+    "default_icon": {
+      "16": "ikone/16.png",
+      "48": "ikone/48.png",
+      "128": "ikone/128.png"
+    }
+  },
+  "options_page": "postavke/postavke.html",
+  "icons": {
+    "16": "ikone/16.png",
+    "48": "ikone/48.png",
+    "128": "ikone/128.png"
+  },
+  "optional_host_permissions": [
+    "https://*/*"
+  ]
+}
